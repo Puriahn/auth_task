@@ -26,15 +26,18 @@ export default function Dashboard() {
         localStorage.removeItem("registered");
         localStorage.removeItem("picture");
         redirect('/auth')
-  }
-
-  useEffect(() => {
-    const storedName = localStorage.getItem("name");
-    const registered = localStorage.getItem("registered");
-    const picture = localStorage.getItem("picture");
-    if (storedName) setName(JSON.parse(storedName));
-    if (registered) setAge(JSON.parse(registered));
-    if (picture) setImage(JSON.parse(picture));
+      }
+      
+      useEffect(() => {
+        const storedName = localStorage.getItem("name");
+        const registered = localStorage.getItem("registered");
+        const picture = localStorage.getItem("picture");
+        if (storedName) setName(JSON.parse(storedName));
+        if (registered) setAge(JSON.parse(registered));
+        if (picture) setImage(JSON.parse(picture));
+        if(!storedName){
+          redirect('/auth')
+        }
   }, []);
   return (
     <div>
