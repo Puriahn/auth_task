@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 export default function SubscribeForm() {
   const [state, action, isLoading] = useActionState(formSubmit, "");
   const router = useRouter();
-  console.log(state?.results?.[0]);
+  console.log(state);
   useEffect(()=>{
     if(state&&!state.error){
         localStorage.setItem("name", JSON.stringify(state?.results?.[0].name));
