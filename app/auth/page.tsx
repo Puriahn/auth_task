@@ -28,7 +28,7 @@ export default function SubscribeForm() {
           className={styles.input}
         />
         <button type="submit" className={styles.button}>
-          {isLoading?"ss":"Login"}
+          {isLoading?"Loading":"Login"}
         </button>
       </form>
       {state?.error && <p className={styles.errorMessage}>{state.error}</p>}

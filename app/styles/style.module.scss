@@ -23,6 +23,7 @@
   
   .button {
     padding: 12px 20px;
+    min-width: 90px;
     font-size: 16px;
     border: none;
     background-color: #0070f3;
@@ -38,6 +39,14 @@
   .errorMessage {
     color: #e63946;      
     font-size: 0.875rem;  
+    text-align: center;       
+  width: 100%;
+    font-weight: 500;     
+    font-family: Arial, sans-serif; 
+  }
+  .message { 
+    margin: 200px auto;
+    font-size: 1.125rem;  
     text-align: center;       
   width: 100%;
     font-weight: 500;     
