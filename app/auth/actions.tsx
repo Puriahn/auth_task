@@ -1,19 +1,21 @@
 "use server"
 
-import axios from "axios";
+import { convertPersianToEnglish } from "../functions/functions";
 
 export async function formSubmit(previousState:string,formData:FormData) {
-    console.log("server action running")
     const data={
-        phone_number: formData.get("phone_number") || ""
+        phone_number: convertPersianToEnglish(formData.get("phone_number")?.toString().trim()??"") || ""
     }
+    console.log(data.phone_number)
+    const isValidIranPhone = /^09\d{9}$/.test(data.phone_number);
+    if (!isValidIranPhone) {
+    return { error: "the phone number is incorrect" };
+  }
     try {
         const formDataToSend = new FormData();
         formDataToSend.append("phone_number", data.phone_number);
-        const response = await axios.get('https://randomuser.me/api/?results=1&nat=us');
-        const result = response.data;
-
-        console.log('Random user:', result);
+        const res = await fetch('https://randomuser.me/api/?results=1&nat=us');
+        const result = await res.json();
         return result;
       } catch (error) {
         console.error('Error fetching user:', error);
