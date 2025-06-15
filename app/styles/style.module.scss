@@ -1,0 +1,38 @@
+/* styles/Form.module.scss */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 400px;
+    margin: 200 auto;
+    padding: 16px;
+  
+    @media (min-width: 600px) {
+      flex-direction: row;
+    }
+  }
+  
+  .input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #0070f3;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  
+    &:hover {
+      background-color: #005dc1;
+    }
+  }
+  
